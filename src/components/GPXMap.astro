@@ -1,0 +1,73 @@
+---
+import 'leaflet/dist/leaflet.css';
+const { gpx } = Astro.props;
+---
+<style>
+  /* Give the map a height and width */
+  #map {
+    height: 300px;
+    width: 100%;
+  }
+</style>
+
+<gpx-map data-gpx={gpx}>
+  <div id="map"></div>
+</gpx-map>
+
+<script>
+  import L from "leaflet";
+import "leaflet-gpx";
+
+  customElements.define('gpx-map', class extends HTMLElement {
+    connectedCallback() {
+      // 1. Initialize the map
+      const map = L.map(this.querySelector('#map') as HTMLElement, {
+        attributionControl: false,
+      }).setView([0, 0], 2);  // Center at [0,0], zoom level 2
+
+      // 2. Add OpenStreetMap tile layer
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      // 3. Load and display the GPX file
+      // Replace 'track.gpx' with the path or URL to your GPX file
+      if (this.dataset.gpx) {
+        new L.GPX(this.dataset.gpx, {
+          async: true,
+          marker_options: {
+            startIconUrl: 'https://unpkg.com/leaflet-gpx@1.6.0/pin-icon-start.png',
+            endIconUrl: 'https://unpkg.com/leaflet-gpx@1.6.0/pin-icon-end.png',
+            shadowUrl: 'https://unpkg.com/leaflet-gpx@1.6.0/pin-shadow.png'
+          }
+        })
+          .on('loaded', function(e) {
+            // Zoom the map to the GPX track
+            map.fitBounds(e.target.getBounds());
+          })
+          .addTo(map);
+
+        // Function to trigger the download
+        var link = document.createElement('a');
+        link.textContent = 'Download GPX';
+        link.href = this.dataset.gpx;
+        link.style.width = '100%';
+        link.style.padding = '0 10px';
+        link.download = this.dataset.gpx.split('/').pop()!;
+
+        // Custom control to add the download button
+        var downloadButton = new L.Control({ position: 'bottomright' });
+
+        downloadButton.onAdd = function () {
+          var button = L.DomUtil.create('div', 'leaflet-bar');
+          button.append(link);
+          return button;
+        };
+
+        downloadButton.addTo(map);
+      }
+    }
+  });
+</script>

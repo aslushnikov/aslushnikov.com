@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import GPXMap from "../components/GPXMap.astro";
+import Tags from "../components/Tags.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+
+---
+<style>
+  img {
+    width: 100%;
+    height: 300px;
+  }
+</style>
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <p>Published on: {frontmatter.pubDate.toLocaleDateString()}</p>
+  <p><em>{frontmatter.description}</em></p>
+  
+  <Image src={frontmatter.image.src} alt={frontmatter.image.alt} />
+  {frontmatter.gpx ? <GPXMap gpx={frontmatter.gpx} /> : undefined}
+  <slot />
+  <Tags tags={frontmatter.tags}/>
+</BaseLayout>

@@ -1,16 +1,15 @@
 ---
 
+import GPXMap from '../components/GPXMap.astro';
+
+import Strava from '../components/Strava.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+
+<BaseLayout pageTitle={"Home Page"}>
+
+  <h2>My awesome blog subtitle</h2>  
+  <Strava ids={['13514009143', '13478997879', '13478997879', '13478997879']}></Strava>
+  <GPXMap gpx="/lycian-way-2.gpx"/>
+</BaseLayout>

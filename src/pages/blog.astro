@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import BlogPost from '../components/BlogPost.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('blog');
+allPosts.sort((p1, p2) => (+p2.data.pubDate) - (+p1.data.pubDate));
+---
+
+<BaseLayout pageTitle="My Astro Learning Blog">
+	<ul>
+		{allPosts.map((post) => 
+			<BlogPost url={`/posts/${post.id}`} title={post.data.title}></BlogPost>
+		)}
+	</ul>
+
+</BaseLayout>
