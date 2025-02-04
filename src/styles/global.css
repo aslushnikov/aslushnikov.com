@@ -18,7 +18,8 @@ html {
 }
 
 body {
-  margin: 0 auto;
+  margin: 0px auto;
+  padding: 0 40px;
   width: 100%;
   max-width: 1280px;
 
