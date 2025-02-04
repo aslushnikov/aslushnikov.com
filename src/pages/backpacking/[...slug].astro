@@ -1,6 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection, render } from 'astro:content';
-import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import GPXMap from "../../components/GPXMap.astro";
+import PostInfo from "../../components/PostInfo.astro";
+import Strava from "../../components/Strava.astro";
+import Base from "../../layouts/Base.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection('backpacking');
@@ -13,6 +17,48 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<MarkdownPostLayout frontmatter={post.data}>
-  <Content />
-</MarkdownPostLayout>
+<style>
+  img {
+    object-fit: cover;
+    height: 300px;
+    border-radius: 10px;
+    margin: 0 40px;
+  }
+
+  h2 {
+    color: rgb(0, 14, 20);
+  }
+
+  .download-gpx {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #00304980;
+  }
+  h-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>
+
+<Base title={post.data.title}>
+  <h2>{post.data.title}</h2>
+  <h-box>
+    <PostInfo showGPX=true frontmatter={post.data}/>
+    
+  </h-box>
+  
+  <p class="full-bleed">
+    <Image class="full-bleed shine" src={post.data.image.src} alt={post.data.image.alt} />
+  </p>
+  <div>
+    <Content />
+  </div>
+
+  {post.data.gpx ? <GPXMap gpx={post.data.gpx} /> : undefined}
+  {post.data.strava ? 
+    <div class="full-bleed"><Strava  ids={post.data.strava} /></div>: undefined
+  }
+</Base>

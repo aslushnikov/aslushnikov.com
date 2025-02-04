@@ -1,13 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import BlogPost from '../../components/BlogPost.astro';
-import BlogLayout from "../../layouts/BlogLayout.astro";
+import Base from "../../layouts/Base.astro";
 
 const allPosts = await getCollection('backpacking');
 allPosts.sort((p1, p2) => (+p2.data.since) - (+p1.data.since));
 ---
-<BlogLayout title="Backpacking">
+<Base title="Backpacking">
 	{allPosts.map((post, index) => 
 		<BlogPost url={`/backpacking/${post.id}`} tilt={((index % 2) * 2 - 1) * 2 + 'deg'} frontmatter={post.data}></BlogPost>
 	)}
-</BlogLayout>
+</Base>
