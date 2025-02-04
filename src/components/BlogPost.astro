@@ -13,11 +13,14 @@ const { frontmatter, url, tilt } = Astro.props;
     display: grid;
     grid-template-columns: 200px auto;
     grid-template-rows: auto auto auto;
+    grid-template-areas: "preview title"
+                         "preview desc"
+                         "preview info";
+
     border-bottom: 1px solid #ddd;
 
     .preview {
-      grid-column: 1;
-      grid-row: 1/-1;
+      grid-area: preview;
       align-self: center;
     }
 
@@ -30,20 +33,29 @@ const { frontmatter, url, tilt } = Astro.props;
     }
 
     h3 {
-      grid-column: 2;
-      grid-row: 1;
+      grid-area: title;
     }
 
     .description {
-      grid-column: 2;
-      grid-row: 2;
+      grid-area: desc;
     }
 
     .tagline {
-      grid-column: 2;
-      grid-row: 3;
+      grid-area: info;
     }
   }
+
+  @media (max-width: 640px) {
+    section {
+      grid-template-columns: auto;
+      grid-template-rows: auto auto auto auto;
+      grid-template-areas: "preview"
+                          "title"
+                          "desc"
+                          "info";
+    }
+  }
+
 </style>
 <section>
   <a class=preview href={url}>
