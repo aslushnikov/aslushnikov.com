@@ -6,7 +6,7 @@ distance: 100
 elevation: 1000
 tags: ["в лоджах"]
 author: aslushnikov
-description: Непал
+description: "Два непростых перевала"
 image:
   src: "./cover.webp"
   alt: Nepal

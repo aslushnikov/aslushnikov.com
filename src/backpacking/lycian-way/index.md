@@ -1,12 +1,12 @@
 ---
-title: "Ликийская Тропа"
+title: "Ликийская Тропа 1/3"
 since: 2024-01-06
 until: 2024-01-14
 distance: 115
 elevation: 4886
 tags: ["с палаткой", "походы"]
 author: aslushnikov
-description: "Второй поход по ликийской тропе"
+description: "Восточная часть Ликийской тропы: сквозь каньон, через горы к морю"
 image:
   src: "./cover.webp" 
   alt: "Armenia"

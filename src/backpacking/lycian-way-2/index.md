@@ -1,12 +1,12 @@
 ---
-title: "Ликийская Тропа - 2"
+title: "Ликийская Тропа 2/3"
 since: 2025-01-19
 until: 2025-01-24
 distance: 101.18
 elevation: 3294
 tags: ["с палаткой"]
 author: aslushnikov
-description: "От Чирали до Каша"
+description: "Центральная часть Ликийской тропы с востока на запад: от Чирали до Каша"
 image:
   src: "./cover.webp"
   alt: "Armenia"
