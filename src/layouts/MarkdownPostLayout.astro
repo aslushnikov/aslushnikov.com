@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import GPXMap from "../components/GPXMap.astro";
 import PostInfo from "../components/PostInfo.astro";
 import Strava from "../components/Strava.astro";
-import Tags from "../components/Tags.astro";
 import BlogLayout from "./BlogLayout.astro";
 
 const { frontmatter } = Astro.props;
@@ -35,6 +34,4 @@ const { frontmatter } = Astro.props;
   {frontmatter.strava ? 
     <div class="full-bleed"><Strava  ids={frontmatter.strava} /></div>: undefined
   }
-
-  <Tags tags={frontmatter.tags}/>
 </BlogLayout>

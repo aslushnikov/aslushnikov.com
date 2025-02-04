@@ -48,9 +48,3 @@ body > .full-bleed {
 .shine:hover {
   -webkit-mask-position: 0 0;
 }
-
-.subtle {
-  color: #00304980;
-  font-size: 0.88;
-  font-family: "Space Grotesk", sans-serif;
-}
