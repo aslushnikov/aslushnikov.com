@@ -44,7 +44,9 @@ const { frontmatter } = Astro.props;
   <p class="full-bleed">
     <Image class="full-bleed shine" src={frontmatter.image.src} alt={frontmatter.image.alt} />
   </p>
-  <slot />
+  <div>
+    <slot />
+  </div>
 
   {frontmatter.gpx ? <GPXMap gpx={frontmatter.gpx} /> : undefined}
   {frontmatter.strava ? 

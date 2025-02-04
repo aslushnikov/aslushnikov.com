@@ -26,7 +26,7 @@ body {
   display: grid;
   grid-template-columns:
     1fr
-    min(80ch, 100%)
+    min(65ch, 100%)
     1fr;
 }
 
