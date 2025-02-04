@@ -19,9 +19,9 @@ html {
 
 body {
   margin: 0px auto;
-  padding: 0 10px;
+  padding: 0 15px;
   width: 100%;
-  max-width: 1220px;
+  max-width: 1230px;
 
   display: grid;
   grid-template-columns:
