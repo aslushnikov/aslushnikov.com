@@ -8,8 +8,8 @@ tags: ["в лоджах"]
 author: aslushnikov
 description: Непал
 image:
-  src: "./tian-shan.webp"
-  alt: "Тянь-Шань"
+  src: "./nepal.webp"
+  alt: Nepal
 strava: [
   '6361555362',
   '6361555830',
