@@ -19,11 +19,27 @@ const { frontmatter } = Astro.props;
   h2 {
     color: rgb(0, 14, 20);
   }
+
+  .download-gpx {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #00304980;
+  }
+  h-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 </style>
 
 <BlogLayout title={frontmatter.title}>
   <h2>{frontmatter.title}</h2>
-  <PostInfo frontmatter={frontmatter}/>
+  <h-box>
+    <PostInfo showGPX=true frontmatter={frontmatter}/>
+    
+  </h-box>
   
   <p class="full-bleed">
     <Image class="full-bleed shine" src={frontmatter.image.src} alt={frontmatter.image.alt} />

@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import BlogPost from '../../components/BlogPost.astro';
 import BlogLayout from "../../layouts/BlogLayout.astro";
 
-const allPosts = await getCollection('blog');
+const allPosts = await getCollection('backpacking');
 allPosts.sort((p1, p2) => (+p2.data.since) - (+p1.data.since));
 ---
 <BlogLayout title="Backpacking">
