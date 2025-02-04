@@ -4,7 +4,7 @@ since: 2024-05-08
 until: 2024-05-13
 distance: 95.53
 elevation: 3348
-description: "Непротоптанная горная тропа мимо церквей армении"
+description: "Горная тропа мимо тысячилетних церквей"
 tags: ["с палаткой"]
 author: aslushnikov
 image:
