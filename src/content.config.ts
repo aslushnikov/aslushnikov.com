@@ -18,7 +18,6 @@ const backpacking = defineCollection({
       alt: z.string()
     }),
     gpx: z.optional(z.string()),
-    tags: z.array(z.string()),
     strava: z.optional(z.array(z.string())),
   })
 });

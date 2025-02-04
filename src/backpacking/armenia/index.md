@@ -5,7 +5,6 @@ until: 2024-05-13
 distance: 95.53
 elevation: 3348
 description: "Горная тропа мимо тысячилетних церквей"
-tags: ["с палаткой"]
 author: aslushnikov
 image:
   src: "./cover.webp"

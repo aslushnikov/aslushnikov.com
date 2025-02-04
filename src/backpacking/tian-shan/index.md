@@ -4,7 +4,6 @@ since: 2023-08-18
 until: 2023-08-26
 distance: 98.84
 elevation: 3806
-tags: ["с палаткой"]
 author: aslushnikov
 description: Коровы, долины, озеро Алакёль
 image:
