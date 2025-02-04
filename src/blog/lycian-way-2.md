@@ -1,6 +1,9 @@
 ---
 title: "Ликийская Тропа - 2"
-pubDate: 2025-01-19
+since: 2025-01-19
+until: 2025-01-24
+distance: 101.18
+elevation: 3294
 tags: ["с палаткой"]
 author: aslushnikov
 description: "Второй поход по ликийской тропе"

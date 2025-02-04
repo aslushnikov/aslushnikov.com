@@ -3,14 +3,22 @@ const { ids } = Astro.props;
 ---
 <style>
   #content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .strava-frame {
+    max-width: 250px;
   }
 </style>
 <div id="content">
   {ids.map((id: string) => 
-    <div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id={id} data-style="standard" data-from-embed="false"></div>
-    <script src="https://strava-embeds.com/embed.js"></script>
+    <div class="strava-frame">
+      <div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id={id} data-style="standard" data-from-embed="false"></div>
+      <script src="https://strava-embeds.com/embed.js"></script>
+    </div>
   )}
 </div>

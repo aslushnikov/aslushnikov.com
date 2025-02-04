@@ -1,6 +1,9 @@
 ---
 title: "Непал"
-pubDate: 2021-11-21
+since: 2021-11-21
+until: 2021-12-02
+distance: 100
+elevation: 1000
 tags: ["в лоджах"]
 author: aslushnikov
 description: Непал

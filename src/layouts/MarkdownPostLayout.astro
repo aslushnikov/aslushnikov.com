@@ -1,29 +1,40 @@
 ---
 import { Image } from "astro:assets";
 import GPXMap from "../components/GPXMap.astro";
+import PostInfo from "../components/PostInfo.astro";
 import Strava from "../components/Strava.astro";
 import Tags from "../components/Tags.astro";
-import BaseLayout from "./BaseLayout.astro";
+import BlogLayout from "./BlogLayout.astro";
 
 const { frontmatter } = Astro.props;
 
 ---
 <style>
   img {
-    width: 100%;
+    object-fit: cover;
     height: 300px;
+    border-radius: 10px;
+    margin: 0 40px;
+  }
+
+  h2 {
+    color: rgb(0, 14, 20);
   }
 </style>
 
-<BaseLayout pageTitle={frontmatter.title}>
-  <p>Published on: {frontmatter.pubDate.toLocaleDateString()}</p>
-  <p><em>{frontmatter.description}</em></p>
+<BlogLayout title={frontmatter.title}>
+  <h2>{frontmatter.title}</h2>
+  <PostInfo frontmatter={frontmatter}/>
   
-  <Image src={frontmatter.image.src} alt={frontmatter.image.alt} />
+  <p class="full-bleed">
+    <Image class="full-bleed shine" src={frontmatter.image.src} alt={frontmatter.image.alt} />
+  </p>
   <slot />
-  
+
   {frontmatter.gpx ? <GPXMap gpx={frontmatter.gpx} /> : undefined}
-  {frontmatter.strava ? <Strava ids={frontmatter.strava} /> : undefined}
-  
+  {frontmatter.strava ? 
+    <div class="full-bleed"><Strava  ids={frontmatter.strava} /></div>: undefined
+  }
+
   <Tags tags={frontmatter.tags}/>
-</BaseLayout>
+</BlogLayout>

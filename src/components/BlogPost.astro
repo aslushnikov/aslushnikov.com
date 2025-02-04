@@ -1,4 +1,57 @@
 ---
-const { url, title } = Astro.props;
+import { Image } from "astro:assets";
+import PostInfo from "./PostInfo.astro";
+const { frontmatter, url, tilt } = Astro.props;
 ---
-<li><a href={url}>{title}</a></li>
+<style define:vars={{ tilt }}>
+  a {
+    text-decoration: none;
+  }
+  section {
+    padding: 24px 12px;
+    gap: 0 48px;
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: auto auto auto;
+    border-bottom: 1px solid #ddd;
+
+    .preview {
+      grid-column: 1;
+      grid-row: 1/-1;
+      align-self: center;
+    }
+
+    img {
+      height: 150px;
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      transform: rotate(var(--tilt, 0deg));
+    }
+
+    h3 {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .description {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .tagline {
+      grid-column: 2;
+      grid-row: 3;
+    }
+  }
+</style>
+<section>
+  <a class=preview href={url}>
+    <Image class="full-bleed shine" src={frontmatter.image.src} alt={frontmatter.image.alt}/>
+  </a>
+  <h3><a href={url}>{frontmatter.title}</a></h3>
+  <p class="description">{frontmatter.description}</p>
+  <div class="tagline">
+    <PostInfo frontmatter={frontmatter}></PostInfo>
+  </div>
+</section>
