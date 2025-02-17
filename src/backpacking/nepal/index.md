@@ -9,6 +9,7 @@ description: "Два непростых перевала"
 image:
   src: "./cover.webp"
   alt: Nepal
+youtube: https://www.youtube.com/watch?v=I70vFTsJbkg
 strava: [
   '6361555362',
   '6361555830',
@@ -25,4 +26,3 @@ strava: [
 ]
 
 ---
-Заметок нет! Есть видео.
