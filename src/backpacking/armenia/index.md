@@ -10,6 +10,7 @@ image:
   src: "./cover.webp"
   alt: "Armenia"
 gpx: /armenia.gpx
+youtube: https://www.youtube.com/watch?v=9hRjaTi4Mgg
 strava: [
   '11400696112',
   '11400696581',

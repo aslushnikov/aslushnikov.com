@@ -13,6 +13,7 @@ const backpacking = defineCollection({
     distance: z.number(),
     description: z.string(),
     author: z.string(),
+    youtube: z.optional(z.string()),
     image: z.object({
       src: image(),
       alt: z.string()

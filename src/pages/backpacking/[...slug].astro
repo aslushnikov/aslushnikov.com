@@ -1,4 +1,5 @@
 ---
+import { YouTube } from 'astro-embed';
 import { Image } from "astro:assets";
 import { getCollection, render } from 'astro:content';
 import GPXMap from "../../components/GPXMap.astro";
@@ -41,9 +42,11 @@ const { Content } = await render(post);
   <h2>{post.data.title}</h2>
   <PostInfo showGPX=true frontmatter={post.data}/>
   
-  <p class="full-bleed">
-    <Image class="full-bleed shine" src={post.data.image.src} alt={post.data.image.alt} />
-  </p>
+  {post.data.youtube ? <p><YouTube class="shine" id={post.data.youtube} /></p> : 
+    <p class="full-bleed">
+      <Image class="full-bleed shine" src={post.data.image.src} alt={post.data.image.alt} />
+    </p>
+  }
   <div>
     <Content />
   </div>
