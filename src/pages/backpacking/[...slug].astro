@@ -42,7 +42,7 @@ const { Content } = await render(post);
   <h2>{post.data.title}</h2>
   <PostInfo showGPX=true frontmatter={post.data}/>
   
-  {post.data.youtube ? <p><YouTube class="shine" id={post.data.youtube} /></p> : 
+  {post.data.youtube ? <p><YouTube posterQuality="high" class="shine" id={post.data.youtube} /></p> : 
     <p class="full-bleed">
       <Image class="full-bleed shine" src={post.data.image.src} alt={post.data.image.alt} />
     </p>
