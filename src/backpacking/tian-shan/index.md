@@ -10,6 +10,7 @@ image:
   src: "./cover.webp"
   alt: "Тянь-Шань"
 gpx: /tian-shan.gpx
+youtube: https://www.youtube.com/watch?v=wjV5gJf71Cw
 strava: [
   '9792456444',
   '9792457145',
